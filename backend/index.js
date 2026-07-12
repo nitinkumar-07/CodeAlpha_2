@@ -21,6 +21,13 @@ const corsOption = {
 app.use(cors(corsOption));
 
 
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Backend is running"
+    });
+});
+
 //user routes
 import userRouter from './routes/user.route.js';
 app.use("/api/users", userRouter);
